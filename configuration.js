@@ -1,16 +1,11 @@
 const mode = 0;
 
-
+const host_local = "http://localhost:8080";
+const host_remote = "https://test3-latest-yaof.onrender.com";
 
 function getHost() {
-    var localHost = 0;
-    if (localHost === 0) {
-        return "http://localhost:8080";
-    } else {
-        return "...";
-    }
+    return (mode == 0) ? host_local : host_remote;
 }
-
 
 function isLoggedIn() {
     if(localStorage.getItem("token")) {
