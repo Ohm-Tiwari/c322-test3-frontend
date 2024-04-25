@@ -66,7 +66,11 @@
       displayTheQuestions();
 
       async function getAll() {
-        let response = await fetch(host + "/questions");
+        let response = await fetch(host + "/questions", {
+          headers: {
+            "Authorization": `Bearer ${configuration.token()}`
+          }
+        });
         let result = await response.json();
         return result;
       }
@@ -135,6 +139,7 @@
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Authorization": `Bearer ${configuration.token()}`
           },
           body: JSON.stringify(question),
         };

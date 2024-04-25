@@ -28,7 +28,11 @@
         displayTheQuizzes();
   
         async function getAll() {
-          let response = await fetch(host + "/quizzes");
+          let response = await fetch(host + "/quizzes", {
+          headers: {
+            "Authorization": `Bearer ${configuration.token()}`
+          }
+        });
           let result = await response.json();
           return result;
         }
